@@ -8,6 +8,9 @@ destination_folder="/volume1/Series"
 # Function to recursively process files in a directory
 process_directory() {
   if [ -d "$1" ]; then
+    if [[ "${$1##*/}" == @* ]]; then
+        return 
+    fi
     # Extract series title from the source folder name (only once per directory)
     source_folder_name=$(basename "$1")
 
@@ -80,10 +83,6 @@ process_directory() {
     # Don't think we need subdir of subdir, but maybe when downloading full season....
     # Recursively process subdirectories
     for subdir in "$1"/*/; do
-        if [[ "${subdir##*/}" == @* ]]; then
-            continue 
-        fi
-
       process_directory "$subdir"
 
       # Delete empty directories source
