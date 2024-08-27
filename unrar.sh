@@ -3,7 +3,7 @@
 # Folder to scan
 folder_to_scan="/volume2/sonarr"
 # Destination folder for extracted files
-destination_folder="/volume1/Series"
+destination_folder="/volume1/Plex-Series"
 
 # Function to recursively process files in a directory
 process_directory() {
